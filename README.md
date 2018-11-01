@@ -66,12 +66,12 @@ With the following software and hardware list you can run all code files present
 
 
 
-### Related products <Other books you may enjoy>
+### Related products
 * Learning Apache Cassandra - Second Edition [[Packt]](https://www.packtpub.com/big-data-and-business-intelligence/learning-apache-cassandra-second-edition?utm_source=github&utm_medium=repository&utm_campaign=9781787127296) [[Amazon]](https://www.amazon.com/dp/178712729X)
 
 * Seven NoSQL Databases in a Week [[Packt]](https://www.packtpub.com/big-data-and-business-intelligence/seven-nosql-databases-week?utm_source=github&utm_medium=repository&utm_campaign=9781787288867) [[Amazon]](https://www.amazon.com/dp/1787288862)
 
-## Get to Know the Author(s)
+## Get to Know the Authors
 **Aaron Ploetz** is the NoSQL Engineering Lead for Target, where his DevOps team supports Cassandra, MongoDB, and Neo4j. He has been named a DataStax MVP for Apache Cassandra three times and has presented at multiple events, including the DataStax Summit and Data Day Texas. Aaron earned a BS in Management/Computer Systems from the University of Wisconsin-Whitewater, and an MS in Software Engineering from Regis University. He and his wife, Coriene, live with their three children in the Twin Cities area.
 
 
