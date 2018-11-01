@@ -18,7 +18,7 @@ This book covers the following exciting features:
 
 * Use CQL3 in your application in order to simplify working with Cassandra
 
-*Configure Cassandra and fine-tune its parameters depending on your needs
+* Configure Cassandra and fine-tune its parameters depending on your needs
 
 * Set up a cluster and learn how to scale it
 
