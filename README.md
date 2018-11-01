@@ -11,7 +11,7 @@ This is the code repository for [Mastering Apache Cassandra 3.x - Third Edition]
 ## What is this book about?
 With ever-increasing rates of data creation, the demand for storing data fast and reliably becomes a need. Apache Cassandra is the perfect choice for building fault-tolerant and scalable databases. Mastering Apache Cassandra 3.x teaches you how to build and architect your clusters, configure and work with your nodes, and program in a high-throughput environment, helping you understand the power of Cassandra as per the new features.
 
-This book covers the following exciting features: <First 5 What you'll learn points>
+This book covers the following exciting features: 
 * Write programs more efficiently using Cassandra's features more efficiently
 
 * Exploit the given infrastructure, improve performance, and tweak the Java Virtual Machine (JVM)
