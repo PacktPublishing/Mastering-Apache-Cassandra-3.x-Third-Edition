@@ -1,5 +1,4 @@
-# Mastering-Apache-Cassandra-3.x-Third-Edition
-Mastering Apache Cassandra 3.x - Third Edition, published by Packt
+
 # Mastering Apache Cassandra 3.x - Third Edition
 
 <a href="https://www.packtpub.com/big-data-and-business-intelligence/mastering-apache-cassandra-3x-third-edition?utm_source=github&utm_medium=repository&utm_campaign=9781789131499"><img src="https://d1ldz4te4covpm.cloudfront.net/sites/default/files/imagecache/ppv4_main_book_cover/B10410_0.png" alt="Mastering Apache Cassandra 3.x - Third Edition" height="256px" align="right"></a>
