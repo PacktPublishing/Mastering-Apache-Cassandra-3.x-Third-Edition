@@ -1,0 +1,54 @@
+#stress yaml for security_logs_by_location_desc_stress
+
+#keyspace name
+keyspace: packt_ch5
+
+#table name
+table: security_logs_by_location_desc_stress
+
+#Definitions for PRIMARY KEY columns
+
+#For each column you can specify (note the defaults):
+#
+#Size distribution – Defines the distribution of sizes for text, blob, set and list types  (default of UNIFORM(4..8))
+#Population distribution – Defines the distribution of unique values for the column values (default of UNIFORM(1..100B))
+#Cluster distribution – Defines the  distribution for the number of clustering prefixes within a given partition (default of FIXED(1)).
+# only applies to clustering columns, specifies the number of values for the column appearing in a single partition. The maximum number of rows in a partition is therefore the product of the maximum number of row of each clustering column (eg max(row1) * max(row 2) * max(row3)).
+#
+#Distribution types:
+#
+#UNIFORM - Provides an equal distribution of the randomly-generated values.
+#FIXED - Provides a specific, fixed number of randomly-generated values.
+#GAUSSIAN - Provides a normal or "bell curve" data distribution, with more values centered around the middle.
+#
+# PRIMARY KEY ((location_id, day), time_in, employee_id)
+columnspec:
+  - name: location_id
+    size: fixed(5)
+    population: uniform(1..1800)
+  - name: day
+    size: fixed(8)
+    population: uniform(1..800)
+  - name: time_in
+    size: fixed(5)
+    population: uniform(1..1800)
+    cluster: uniform(1..1000)
+  - name: employee_id
+    size: gaussian(4..10)
+    population: uniform(1..1000)
+    cluster: uniform(1..1000)
+  - name: mailstop
+    size: fixed(4)
+    population: uniform(1..1800)
+
+#insert definition
+insert:
+  partitions: fixed(1)
+  batchtype: UNLOGGED
+  select: fixed(1)/15       # Uniform chance any single generated CQL row will be visited in a partition
+
+#query definition(s)
+queries:
+   query1:
+      cql: SELECT * FROM security_logs_by_location_desc_stress WHERE location_id=? AND day=?
+      fields: multirow

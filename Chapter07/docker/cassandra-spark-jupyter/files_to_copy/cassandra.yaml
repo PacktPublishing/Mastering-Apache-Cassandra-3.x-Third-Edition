@@ -1,0 +1,26 @@
+# Configurable
+cluster_name: 'NoNameCluster'
+seed_provider:
+    - class_name: org.apache.cassandra.locator.SimpleSeedProvider
+      parameters:
+          - seeds: "127.0.0.1"
+broadcast_address: 127.0.0.1
+broadcast_rpc_address: 127.0.0.1
+listen_address: localhost
+rpc_address: 0.0.0.0
+
+# Static
+num_tokens: 16
+concurrent_reads: 16
+concurrent_counter_writes: 16
+phi_convict_threshold: 10
+start_native_transport: true
+authenticator: PasswordAuthenticator
+authorizer: CassandraAuthorizer
+commitlog_sync: periodic
+commitlog_sync_period_in_ms: 10000
+partitioner: org.apache.cassandra.dht.Murmur3Partitioner
+auto_snapshot: false
+endpoint_snitch: GossipingPropertyFileSnitch
+concurrent_compactors: 2
+concurrent_writes: 16

@@ -1,0 +1,193 @@
+servers:
+  - port: 7199
+    host: 127.0.0.1
+    queries:
+      - outputWriters:
+          - "@class": com.googlecode.jmxtrans.model.output.InfluxDbWriterFactory
+            url: "http://127.0.0.1:5100/"
+            username: admin
+            password: admin
+            database: jmxDB
+        obj: org.apache.cassandra.net:type=FailureDetector
+        attr:
+          - DownEndpointCount
+        resultAlias: FailureDetector
+      - outputWriters:
+          - "@class": com.googlecode.jmxtrans.model.output.InfluxDbWriterFactory
+            url: "http://127.0.0.1:5100/"
+            username: admin
+            password: admin
+            database: jmxDB
+        obj: java.lang:type=Memory
+        attr:
+          - HeapMemoryUsage
+        resultAlias: Memory
+      - outputWriters:
+          - "@class": com.googlecode.jmxtrans.model.output.InfluxDbWriterFactory
+            url: "http://127.0.0.1:5100/"
+            username: admin
+            password: admin
+            database: jmxDB
+            tags: { PendingTasks: Value }
+        obj: org.apache.cassandra.metrics:type=Compaction,name=PendingTasks
+        attr:
+          - Value
+        resultAlias: Compaction
+      - outputWriters:
+          - "@class": com.googlecode.jmxtrans.model.output.InfluxDbWriterFactory
+            url: "http://127.0.0.1:5100/"
+            username: admin
+            password: admin
+            database: jmxDB
+            tags: { TotalCompactionsCompleted: Count }
+        obj: org.apache.cassandra.metrics:type=Compaction,name=TotalCompactionsCompleted
+        attr:
+          - OneMinuteRate
+        resultAlias: Compaction
+      - outputWriters:
+          - "@class": com.googlecode.jmxtrans.model.output.InfluxDbWriterFactory
+            url: "http://127.0.0.1:5100/"
+            username: admin
+            password: admin
+            database: jmxDB
+            tags: { TotalHintsInProgress: Count }
+        obj: org.apache.cassandra.metrics:type=Storage,name=TotalHintsInProgress
+        attr:
+          - Count
+        resultAlias: Storage
+      - outputWriters:
+          - "@class": com.googlecode.jmxtrans.model.output.InfluxDbWriterFactory
+            url: "http://127.0.0.1:5100/"
+            username: admin
+            password: admin
+            database: jmxDB
+            tags: { TotalHints: Count }
+        obj: org.apache.cassandra.metrics:type=Storage,name=TotalHints
+        attr:
+          - Count
+        resultAlias: Storage
+      - outputWriters:
+          - "@class": com.googlecode.jmxtrans.model.output.InfluxDbWriterFactory
+            url: "http://127.0.0.1:5100/"
+            username: admin
+            password: admin
+            database: jmxDB
+            tags: { connectedNativeClients: Value }
+        obj: org.apache.cassandra.metrics:type=Client,name=connectedNativeClients
+        attr:
+          - Value
+        resultAlias: Client
+      - outputWriters:
+          - "@class": com.googlecode.jmxtrans.model.output.InfluxDbWriterFactory
+            url: "http://127.0.0.1:5100/"
+            username: admin
+            password: admin
+            database: jmxDB
+            tags: { Read: Timeouts }
+        obj: org.apache.cassandra.metrics:type=ClientRequest,scope=Read,name=Timeouts
+        attr:
+          - OneMinuteRate
+        resultAlias: ClientRequest
+      - outputWriters:
+          - "@class": com.googlecode.jmxtrans.model.output.InfluxDbWriterFactory
+            url: "http://127.0.0.1:5100/"
+            username: admin
+            password: admin
+            database: jmxDB
+            tags: { Read: Latency }
+        obj: org.apache.cassandra.metrics:type=ClientRequest,scope=Read,name=Latency
+        attr:
+          - 95thPercentile
+          - 99thPercentile
+          - Count
+        resultAlias: ClientRequest
+      - outputWriters:
+          - "@class": com.googlecode.jmxtrans.model.output.InfluxDbWriterFactory
+            url: "http://127.0.0.1:5100/"
+            username: admin
+            password: admin
+            database: jmxDB
+            tags: { Write: Timeouts}
+        obj: org.apache.cassandra.metrics:type=ClientRequest,scope=Write,name=Timeouts
+        attr:
+          - OneMinuteRate
+        resultAlias: ClientRequest
+      - outputWriters:
+          - "@class": com.googlecode.jmxtrans.model.output.InfluxDbWriterFactory
+            url: "http://127.0.0.1:5100/"
+            username: admin
+            password: admin
+            database: jmxDB
+            tags: { Write: Latency }
+        obj: org.apache.cassandra.metrics:type=ClientRequest,scope=Write,name=Latency
+        attr:
+          - 95thPercentile
+          - 99thPercentile
+          - Count
+        resultAlias: ClientRequest
+      - outputWriters:
+          - "@class": com.googlecode.jmxtrans.model.output.InfluxDbWriterFactory
+            url: "http://127.0.0.1:5100/"
+            username: admin
+            password: admin
+            database: jmxDB
+            tags: { SSTablesPerReadHistogram: Value }
+        obj: org.apache.cassandra.metrics:type=ColumnFamily,name=SSTablesPerReadHistogram
+        attr:
+          - Value
+        resultAlias: ColumnFamily
+      - outputWriters:
+          - "@class": com.googlecode.jmxtrans.model.output.InfluxDbWriterFactory
+            url: "http://127.0.0.1:5100/"
+            username: admin
+            password: admin
+            database: jmxDB
+            tags: { TombstoneScannedHistogram: Value }
+        obj: org.apache.cassandra.metrics:type=ColumnFamily,name=TombstoneScannedHistogram
+        attr:
+          - Value
+        resultAlias: ColumnFamily
+      - outputWriters:
+          - "@class": com.googlecode.jmxtrans.model.output.InfluxDbWriterFactory
+            url: "http://127.0.0.1:5100/"
+            username: admin
+            password: admin
+            database: jmxDB
+            tags: { ReadRepairStage: ActiveTasks }
+        obj: org.apache.cassandra.metrics:type=ThreadPools,path=request,scope=ReadRepairStage,name=ActiveTasks
+        attr:
+          - Value
+        resultAlias: ThreadPools
+      - outputWriters:
+          - "@class": com.googlecode.jmxtrans.model.output.InfluxDbWriterFactory
+            url: "http://127.0.0.1:5100/"
+            username: admin
+            password: admin
+            database: jmxDB
+            tags: { ReadRepairStage: PendingTasks }
+        obj: org.apache.cassandra.metrics:type=ThreadPools,path=request,scope=ReadRepairStage,name=PendingTasks
+        attr:
+          - Value
+        resultAlias: ThreadPools
+      - outputWriters:
+          - "@class": com.googlecode.jmxtrans.model.output.InfluxDbWriterFactory
+            url: "http://127.0.0.1:5100/"
+            username: admin
+            password: admin
+            database: jmxDB
+            tags: { Native-Transport-Requests: ActiveTasks }
+        obj: org.apache.cassandra.metrics:type=ThreadPools,path=transport,scope=Native-Transport-Requests,name=ActiveTasks
+        attr:
+          - Value
+        resultAlias: ThreadPools
+      - outputWriters:
+          - "@class": com.googlecode.jmxtrans.model.output.InfluxDbWriterFactory
+            url: "http://127.0.0.1:5100/"
+            username: admin
+            password: admin
+            database: jmxDB
+            tags: { Native-Transport-Requests: PendingTasks }
+        obj: org.apache.cassandra.metrics:type=ThreadPools,path=transport,scope=Native-Transport-Requests,name=PendingTasks
+        attr:
+          - Value
+        resultAlias: ThreadPools
